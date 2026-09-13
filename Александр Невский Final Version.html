@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Александр Невский — жизнь, политика и эпоха</title>
+<style>
+:root {
+  --paper:#f4ecdc;
+  --paper2:#fffaf1;
+  --ink:#15324d;
+  --text:#3e4953;
+  --gold:#c7a24d;
+  --red:#8f4138;
+  --line:#d8c18c;
+  --blue:#2d587b;
+  --muted:#6c6a61;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(255,255,255,.85),transparent 30%),
+    #efe3c8;
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+}
+main{
+  width:min(1180px,calc(100% - 28px));
+  margin:24px auto 44px;
+}
+.paper{
+  background:rgba(255,250,241,.94);
+  border:1px solid var(--line);
+  box-shadow:0 9px 28px rgba(61,45,18,.08);
+}
+.hero{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  min-height:410px;
+  overflow:hidden;
+}
+.hero-copy{
+  padding:38px 38px 32px;
+  align-self:center;
+}
+.eyebrow{
+  font-size:.82rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#75602e;
+}
+h1{
+  margin:8px 0 7px;
+  font-size:clamp(3rem,7vw,5.8rem);
+  line-height:.9;
+}
+.dates{
+  display:inline-block;
+  padding:8px 14px;
+  background:var(--gold);
+  color:#1c2d3c;
+  font-weight:700;
+  margin:8px 0 16px;
+}
+.intro{
+  font-size:1.08rem;
+  line-height:1.6;
+  color:var(--text);
+  max-width:720px;
+}
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin-top:22px;
+  max-width:760px;
+}
+.stat-card{
+  background:#fffdf7;
+  border:1px solid var(--line);
+  padding:14px 14px 12px;
+}
+.stat-card b{
+  display:block;
+  font-size:1.6rem;
+  line-height:1;
+  margin-bottom:7px;
+  color:var(--ink);
+}
+.stat-card span{
+  display:block;
+  color:var(--text);
+  line-height:1.35;
+  font-size:.95rem;
+}
+.hero-image{
+  min-height:410px;
+  background:#e6d9bd;
+  position:relative;
+}
+.hero-image img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:sepia(.08);
+}
+.caption{
+  font-size:.78rem;
+  line-height:1.35;
+  color:var(--muted);
+  margin-top:7px;
+}
+.section{
+  margin-top:22px;
+  padding:24px;
+}
+h2{
+  margin:0 0 16px;
+  font-size:2rem;
+}
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.story-card{
+  border:1px solid var(--line);
+  background:#fffdf7;
+  overflow:hidden;
+}
+.story-card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  display:block;
+}
+.story-body{padding:17px 18px 19px}
+.pill{
+  display:inline-block;
+  border-radius:999px;
+  padding:5px 10px;
+  font-size:.83rem;
+  font-weight:700;
+  margin-bottom:8px;
+  background:#e9f0f6;
+}
+.pill.east{background:#f3e8ce;color:#6d5120}
+.story-card h3{
+  margin:0 0 8px;
+  font-size:1.55rem;
+}
+.story-card p{
+  margin:0;
+  color:var(--text);
+  line-height:1.5;
+}
+.year{
+  color:var(--red);
+  font-weight:700;
+}
+.timeline-wrap{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:22px;
+}
+.timeline{
+  position:relative;
+  padding:4px 0 0 38px;
+}
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:14px;top:8px;bottom:8px;
+  width:3px;background:linear-gradient(var(--gold),var(--blue));
+}
+.event{
+  position:relative;
+  padding:0 0 20px 16px;
+}
+.event:last-child{padding-bottom:0}
+.event:before{
+  content:"";
+  position:absolute;
+  left:-31px;top:4px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--gold);
+  border:3px solid #fffaf1;
+  box-shadow:0 0 0 2px var(--ink);
+}
+.event .y{
+  display:block;
+  margin-left:4px;
+  font-size:1.35rem;
+  color:var(--red);
+  font-weight:700;
+}
+.event .n{margin:5px 0 4px;font-weight:700;font-size:1.1rem}
+.event .d{color:var(--text);line-height:1.45}
+.photo-stack{
+  display:grid;
+  gap:14px;
+}
+.photo-card{
+  margin:0;
+  border:1px solid var(--line);
+  background:white;
+  overflow:hidden;
+}
+.photo-card img{
+  width:100%;
+  height:205px;
+  object-fit:cover;
+  display:block;
+}
+.photo-card figcaption{
+  padding:10px 12px 12px;
+  color:var(--text);
+  line-height:1.35;
+}
+
+
+.charts{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+  width:100%;
+  max-width:none;
+  margin:0;
+}
+.chart{
+  border:0;
+  background:transparent;
+  padding:4px 0 0;
+}
+.chart h3{
+  margin:0 0 10px;
+  font-size:1.4rem;
+}
+.chart-note{
+  margin:0 0 22px;
+  color:var(--muted);
+  line-height:1.45;
+  font-size:.94rem;
+}
+
+/* full-width life-stage donut */
+.life-wrap{
+  display:grid;
+  grid-template-columns:1fr;
+  justify-items:center;
+  align-items:start;
+  min-height:auto;
+}
+.life-donut{
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:
+    conic-gradient(
+      #c7a24d 0 35.714%,
+      #52728a 35.714% 73.81%,
+      #17324d 73.81% 100%
+    );
+  position:relative;
+  margin:6px auto 18px;
+}
+.life-donut:after{
+  content:"";
+  position:absolute;
+  inset:56px;
+  background:#fffdf8;
+  border-radius:50%;
+}
+.life-center{
+  position:absolute;
+  z-index:2;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-weight:700;
+  font-size:2rem;
+  line-height:1.05;
+  gap:10px;
+  transform:translateY(0);
+}
+.life-center span{
+  display:block;
+  font-size:.98rem;
+  font-weight:400;
+  color:var(--muted);
+  margin-top:0;
+  line-height:1;
+}
+.life-legend{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(180px, 1fr));
+  gap:16px;
+  width:100%;
+  margin-top:2px;
+}
+.life-row{
+  display:grid;
+  grid-template-columns:14px 1fr;
+  gap:10px;
+  align-items:start;
+}
+.life-swatch{
+  width:14px;
+  height:14px;
+  border-radius:3px;
+  margin-top:3px;
+}
+.life-row b{
+  display:block;
+  margin-bottom:2px;
+}
+.life-row span{
+  color:var(--muted);
+  line-height:1.38;
+  font-size:.92rem;
+}
+
+
+
+.context{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+.context div{
+  border-top:3px solid var(--gold);
+  background:#fffdf8;
+  padding:14px;
+  min-height:130px;
+}
+.context b{
+  font-size:1.25rem;
+  color:var(--red);
+}
+.context p{
+  margin:7px 0 0;
+  color:var(--text);
+  line-height:1.42;
+}
+
+.significance{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.sign-card{
+  border:1px solid var(--line);
+  background:#fffdf8;
+  padding:16px;
+}
+.sign-card h3{
+  margin:0 0 8px;
+  font-size:1.2rem;
+}
+.sign-card p{
+  margin:0;
+  color:var(--text);
+  line-height:1.45;
+}
+.memory{
+  display:grid;
+  grid-template-columns:1.15fr 1fr 1fr;
+  gap:16px;
+}
+.memory-card{
+  border:1px solid var(--line);
+  background:#fffdf8;
+  padding:16px;
+}
+.memory-card h3{
+  margin:0 0 8px;
+  font-size:1.2rem;
+}
+.memory-card p{
+  margin:0;
+  color:var(--text);
+  line-height:1.45;
+}
+.memory-year{
+  color:var(--red);
+  font-weight:700;
+  font-size:1.28rem;
+  margin-bottom:8px;
+}
+
+.sources{
+  font-size:.77rem;
+  line-height:1.5;
+  color:#6d685c;
+  margin-top:18px;
+  padding:16px 18px;
+}
+.sources a{color:#4d6280}
+@media(max-width:900px){
+  .hero,.two,.timeline-wrap,.charts,.hero-stats,.significance,.memory{grid-template-columns:1fr}
+  .hero-image{min-height:330px}
+  .context{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .life-legend{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  main{width:min(100% - 14px,1180px);margin-top:8px}
+  .hero-copy,.section{padding:16px}
+  .context{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:100px 1fr 45px}
+  .life-wrap{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<main>
+<section class="paper hero">
+  <div class="hero-copy">
+    <div class="eyebrow">История России · XIII век</div>
+    <h1>Александр Невский</h1>
+    <div class="dates">1221–1263</div>
+    <div class="intro">
+      Новгородский и великий владимирский князь, чья политика развивалась
+      одновременно на двух направлениях: вооружённая защита северо-западных
+      рубежей и переговоры с Ордой в условиях зависимости русских земель.
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-card">
+        <b>42 года</b>
+        <span>прожил Александр Невский</span>
+      </div>
+      <div class="stat-card">
+        <b>1240 и 1242</b>
+        <span>даты Невской битвы и Ледового побоища</span>
+      </div>
+      <div class="stat-card">
+        <b>11 лет</b>
+        <span>оставался великим князем Владимирским с 1252 по 1263 год</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/AlexanderNevski.jpg" alt="Александр Невский, гравюра XIX века">
+  </div>
+</section>
+
+<section class="paper section">
+  <h2>Два направления политики</h2>
+  <div class="two">
+    <article class="story-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Alexander_Nevsky_in_the_battle_with_the_Swedes_by_Boris_Chorikov.jpg" alt="Александр Невский в битве со шведами, Борис Чориков">
+      <div class="story-body">
+        <div class="pill">Запад</div>
+        <h3>Вооружённая защита рубежей</h3>
+        <p><span class="year">1240</span> — Невская битва. 
+        <span class="year">1242</span> — Ледовое побоище. Победы укрепили положение Новгорода
+        на северо-западном направлении.</p>
+        <div class="caption">Борис Чориков. «Александр Невский в битве со шведами», XIX век.</div>
+      </div>
+    </article>
+
+    <article class="story-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Semiradsky_Aleksandr_Nevsky_v_Orde.jpg" alt="Александр Невский в Орде, Генрих Семирадский">
+      <div class="story-body">
+        <div class="pill east">Восток</div>
+        <h3>Дипломатия и сохранение сил</h3>
+        <p><span class="year">1247–1248</span> — поездка в Орду и Каракорум.
+        <span class="year">1252</span> — ярлык на великое княжение.
+        <span class="year">1262–1263</span> — переговоры с ханом Берке.</p>
+        <div class="caption">Генрих Семирадский. «Александр Невский в Орде», 1876.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="paper section">
+  <h2>Лента жизни</h2>
+  <div class="timeline-wrap">
+    <div class="timeline">
+      <div class="event">
+        <span class="y">1221</span>
+        <div class="n">Рождение в Переяславле-Залесском</div>
+        <div class="d">Сын князя Ярослава Всеволодовича.</div>
+      </div>
+      <div class="event">
+        <span class="y">1236</span>
+        <div class="n">Самостоятельный князь Новгорода</div>
+        <div class="d">В пятнадцать лет становится полноправным новгородским князем.</div>
+      </div>
+      <div class="event">
+        <span class="y">1240</span>
+        <div class="n">Невская битва</div>
+        <div class="d">Победа над шведским войском в устье Ижоры.</div>
+      </div>
+      <div class="event">
+        <span class="y">1242</span>
+        <div class="n">Ледовое побоище</div>
+        <div class="d">Сражение на Чудском озере с войсками ордена.</div>
+      </div>
+      <div class="event">
+        <span class="y">1247–1248</span>
+        <div class="n">Орда и Каракорум</div>
+        <div class="d">Поездка в ставку Орды и далее в Монгольскую империю.</div>
+      </div>
+      <div class="event">
+        <span class="y">1252</span>
+        <div class="n">Великое княжение Владимирское</div>
+        <div class="d">Получение ярлыка на великое княжение.</div>
+      </div>
+      <div class="event">
+        <span class="y">1262–1263</span>
+        <div class="n">Последняя поездка к хану Берке</div>
+        <div class="d">Переговоры после антиордынских восстаний.</div>
+      </div>
+      <div class="event">
+        <span class="y">1263</span>
+        <div class="n">Смерть в Городце</div>
+        <div class="d">14 ноября 1263 года, на обратном пути из Орды.</div>
+      </div>
+    </div>
+
+    <div class="photo-stack">
+      <figure class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Facial_Chronicle_-_b.06%2C_page_085_-_Battle_of_the_Ice.jpg" alt="Ледовое побоище в Лицевом летописном своде">
+        <figcaption>
+          <b>Ледовое побоище.</b> Миниатюра Лицевого летописного свода XVI века —
+          более позднее изображение событий 1242 года.
+        </figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/%D0%A3%D1%81%D1%82%D1%8C-%D0%98%D0%B6%D0%BE%D1%80%D0%B0._%D0%A2%D0%B5%D1%80%D1%80%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%9D%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B9_%D0%B1%D0%B8%D1%82%D0%B2%D1%8B_01.jpg" alt="Современный вид места Невской битвы в Усть-Ижоре">
+        <figcaption>
+          <b>Усть-Ижора.</b> Современный вид территории, связанной с Невской битвой.
+        </figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Pereslavl_SpasoPreobrazhenskyCathedral.JPG" alt="Спасо-Преображенский собор в Переяславле-Залесском">
+        <figcaption>
+          <b>Спасо-Преображенский собор в Переяславле-Залесском.</b>
+          Храм XII века, сохранившийся до наших дней.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="paper section">
+  <div class="charts">
+    <div class="chart">
+      <h3>42 года жизни: три политических этапа</h3>
+      <p class="chart-note">Периоды показаны по ключевым датам: 1221, 1236, 1252 и 1263.</p>
+
+      <div class="life-wrap">
+        <div class="life-donut">
+          <div class="life-center">
+            42 года
+            <span>1221–1263</span>
+          </div>
+        </div>
+
+        <div class="life-legend">
+          <div class="life-row">
+            <div class="life-swatch" style="background:#c7a24d"></div>
+            <div>
+              <b>1221–1236 · 15 лет</b>
+              <span>Детство и княжеское воспитание — до самостоятельного княжения в Новгороде.</span>
+            </div>
+          </div>
+
+          <div class="life-row">
+            <div class="life-swatch" style="background:#52728a"></div>
+            <div>
+              <b>1236–1252 · 16 лет</b>
+              <span>Новгородское княжение, Невская битва, Ледовое побоище и первые поездки в Орду.</span>
+            </div>
+          </div>
+
+          <div class="life-row">
+            <div class="life-swatch" style="background:#17324d"></div>
+            <div>
+              <b>1252–1263 · 11 лет</b>
+              <span>Великое княжение Владимирское — около четверти всей жизни.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="paper section">
+  <h2>Исторический контекст</h2>
+  <div class="context">
+    <div><b>1223</b><p>Битва на Калке — первое крупное столкновение русских князей с монголами.</p></div>
+    <div><b>1237–1240</b><p>Батыево нашествие: падение Рязани, Владимира и Киева.</p></div>
+    <div><b>1243</b><p>Ярослав Всеволодович получает старейшинство в Руси от Батыя.</p></div>
+    <div><b>1246</b><p>Смерть Ярослава Всеволодовича в Каракоруме.</p></div>
+  </div>
+</section>
+
+<section class="paper section">
+  <h2>Историческое значение</h2>
+  <div class="significance">
+    <div class="sign-card">
+      <h3>Западное направление</h3>
+      <p>Александр Невский отстоял независимость Руси от католического Запада силой оружия.</p>
+    </div>
+    <div class="sign-card">
+      <h3>Восточное направление</h3>
+      <p>В отношениях с Ордой он выбрал гибкость и накопление сил.</p>
+    </div>
+    <div class="sign-card">
+      <h3>Итог политики</h3>
+      <p>Его деятельность сочетала военную защиту северо-западных рубежей и дипломатические действия на востоке.</p>
+    </div>
+  </div>
+</section>
+
+<section class="paper section">
+  <h2>Память</h2>
+  <div class="memory">
+    <div class="memory-card">
+      <h3>Посмертное почитание</h3>
+      <p>В лекции отдельно выделены канонизация князя и перенесение его мощей в Александро-Невскую лавру.</p>
+    </div>
+    <div class="memory-card">
+      <div class="memory-year">1547</div>
+      <p>канонизация на церковном соборе.</p>
+    </div>
+    <div class="memory-card">
+      <div class="memory-year">1724</div>
+      <p>перенесение мощей в Благовещенскую церковь лавры.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
